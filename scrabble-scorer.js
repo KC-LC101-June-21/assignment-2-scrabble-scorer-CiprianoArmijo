@@ -105,16 +105,28 @@ let scrabbleScore = function(word) {
 
 }
 
-const scoringAlgorithms = {
-  name: [ 'Simple Score', 'Vowel Bonus', 'Scrabble' ],
-  description: [ 'Each letter is worth 1 point.', 'Vowels are 3 pts, consonants are 1 pt.', 'The traditional scoring algorithm.' ],
-  scoringFunction: [ simpleScore(word), vowelBonusScore(word), scrabbleScore(word)]
- }
+const scoringAlgorithms = [
+  {
+    name: 'Simple Score',
+    description: 'Each letter is worth 1 point.',
+    scoringFunction: simpleScore
+  },
+  {
+    name: 'Vowel Bonus',
+    description: 'Vowels are 3 pts, consonants are 1 pt.',
+    scoringFunction: vowelBonusScore
+  },
+  {
+    name: 'Scrabble',
+    description: 'The traditional scoring algorithm.',
+    scoringFunction: scrabbleScore
+  }
+]
 
 function scorerPrompt() {
   let selectedFunction = input.question('Enter 0 for "Simple Scorer," 1 for l "Vowel Bonus," or 2 for "Scrabble Scoring:" ');
   let algorithmName = scoringAlgorithms.name[selectedFunction]
-  let = chosenFunction = scoringAlgorithms.scoringFunction[selectedFunction]
+  let chosenFunction = scoringAlgorithms.scoringFunction[selectedFunction]
 
   console.log();
   console.log(`Algorithm name: ${algorithmName}`);
