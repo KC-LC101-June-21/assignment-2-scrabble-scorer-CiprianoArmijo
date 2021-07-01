@@ -73,7 +73,7 @@ let vowelBonusScore = function(word) {
 
   for (let i = 0; i < word.length; i++) {
     for (const pointValue in bonusVowels) {
-      if (bonusVowels[pointValue].includes(word[i])) {
+      if (bonusVowels[pointValue].includes(word[i].toUpperCase)) {
         vowelScore += Number(pointValue);
       }
     }
