@@ -75,10 +75,11 @@ let vowelBonusScore = function(word) {
     for (const pointValue in bonusVowels) {
       if (bonusVowels[pointValue].includes(word[i])) {
         vowelScore += Number(pointValue);
+        console.log(`${word[i]}`)
       }
     }
   }
-  console.log(`Your vowel bonus score is: ${vowelScore}`);  
+    console.log(`Your vowel bonus score is: ${vowelScore}`);  
 
   return vowelScore
 }
@@ -205,11 +206,11 @@ function runProgram() {
   // console.log("letter a: ", newPointStructure.A);
   // console.log("letter j: ", newPointStructure.J);
   // console.log("letter z: ", newPointStructure["Z"]);
-  scorerPrompt();
+  //scorerPrompt();
   //scrabbleScore(word);
   // oldScrabbleScorer(word);
   // simpleScore(word);
-  // vowelBonusScore(word)
+  vowelBonusScore(word)
 }
 
 // Don't write any code below this line //
