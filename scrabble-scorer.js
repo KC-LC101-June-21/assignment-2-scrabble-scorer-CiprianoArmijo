@@ -73,13 +73,12 @@ let vowelBonusScore = function(word) {
 
   for (let i = 0; i < word.length; i++) {
     for (const pointValue in bonusVowels) {
-      if (bonusVowels[pointValue].includes(word[i].toUpperCase)) {
+      if (bonusVowels[pointValue].includes(word[i].toUpperCase())) {
         vowelScore += Number(pointValue);
       }
     }
   }
-  console.log(typeof vowelScore);
-  console.log(vowelScore);
+  
   console.log(`Your vowel bonus score is: ${vowelScore}`);  
 
   return vowelScore
@@ -207,11 +206,11 @@ function runProgram() {
   // console.log("letter a: ", newPointStructure.A);
   // console.log("letter j: ", newPointStructure.J);
   // console.log("letter z: ", newPointStructure["Z"]);
-  //scorerPrompt();
+  scorerPrompt();
   //scrabbleScore(word);
   // oldScrabbleScorer(word);
   // simpleScore(word);
-  vowelBonusScore(word)
+  //vowelBonusScore(word)
 }
 
 // Don't write any code below this line //
