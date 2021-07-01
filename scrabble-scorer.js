@@ -75,11 +75,12 @@ let vowelBonusScore = function(word) {
     for (const pointValue in bonusVowels) {
       if (bonusVowels[pointValue].includes(word[i])) {
         vowelScore += Number(pointValue);
-        console.log(`${word[i]}`)
       }
     }
   }
-    console.log(`Your vowel bonus score is: ${vowelScore}`);  
+  console.log(typeof vowelScore);
+  console.log(vowelScore);
+  console.log(`Your vowel bonus score is: ${vowelScore}`);  
 
   return vowelScore
 }
