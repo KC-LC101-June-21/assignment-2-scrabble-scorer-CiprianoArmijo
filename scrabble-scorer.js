@@ -66,7 +66,7 @@ let simpleScore = function(word) {
 
 let vowelBonusScore = function(word) {
   //console.log(vowel)
-  let vowelBonusScore = 0;
+  let vowelScore = 0;
   //let counter = 0;
   //word = word.toUpperCase();
   console.log();
@@ -74,14 +74,13 @@ let vowelBonusScore = function(word) {
   for (let i = 0; i < word.length; i++) {
     for (const pointValue in bonusVowels) {
       if (bonusVowels[pointValue].includes(word[i])) {
-        vowelBonusScore += Number(pointValue);
+        vowelScore += Number(pointValue);
       }
     }
   }
+  console.log(`Your vowel bonus score is: ${vowelScore}`);  
 
-  console.log(`Your vowel bonus score is: ${vowelBonusScore}`);  
-
-  return vowelBonusScore
+  return vowelScore
 }
 
 let scrabbleScore = function(word) {
