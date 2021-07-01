@@ -125,13 +125,36 @@ const scoringAlgorithms = [
 
 function scorerPrompt() {
   let selectedFunction = input.question('Enter 0 for "Simple Scorer," 1 for l "Vowel Bonus," or 2 for "Scrabble Scoring:" ');
-  let algorithmName = scoringAlgorithms.name[selectedFunction]
-  let chosenFunction = scoringAlgorithms.scoringFunction[selectedFunction]
-
+  
   console.log();
-  console.log(`Algorithm name: ${algorithmName}`);
 
-  chosenFunction(word);
+  let algorithmName = '';
+  selectedFunction = Number(selectedFunction);
+
+  
+  if (selectedFunction === 0) {
+     algorithmName = 'Simple Score';
+     console.log(`Algorithm name: ${algorithmName}`);
+     simpleScore(word);
+  }
+
+  if (selectedFunction === 1) {
+     algorithmName = 'Vowel Bonus';
+     console.log(`Algorithm name: ${algorithmName}`);
+     vowelBonusScore(word);
+  }
+  if (selectedFunction === 2) {
+     algorithmName = 'Scrabble';
+     console.log(`Algorithm name: ${algorithmName}`);
+     scrabbleScore(word);
+  }
+  //let algorithmName = scoringAlgorithms.name[selectedFunction]
+  //let chosenFunction = scoringAlgorithms.scoringFunction[selectedFunction]
+
+  //console.log();
+  //console.log(`Algorithm name: ${algorithmName}`);
+
+  //chosenFunction(word);
 }
 
 function transform(oldPointStructure) {
