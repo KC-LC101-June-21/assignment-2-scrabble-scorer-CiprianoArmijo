@@ -85,17 +85,19 @@ let vowelBonusScore = function(word) {
 
 let scrabbleScore = function(word) {
   let letterPoints = 0;
+  word = word.toLowerCase();
+
+  for (let i = 0; i < word.length; i++) {
  
-	//for (let i = 0; i < word.length; i++) {
- 
-	  for (let x in word) {
+	  for (let x in newPointStructure) {
+      if(x === word[i]) {
+	      letterPoints += newPointStructure[x];
       
-		 //if (newPointStructure.includes(word[i])) {
-			letterPoints += Number(newPointStructure[x.toLowerCase()]);
-      console.log(`Points for ${word[x]}: ${letterPoints}. `);
-		 //}
- 	  }
-	//}
+        console.log(`Points for ${word[i]}: ${newPointStructure[x]}. `);
+      }
+    }
+ 	}
+	
   console.log();
   console.log(`Total points: ${letterPoints}.`);
 	return letterPoints;
@@ -105,7 +107,7 @@ let scrabbleScore = function(word) {
 const scoringAlgorithms = {
   name: ['Simple Score', 'Bonus Vowels', 'Scrabble'],
   description: ['Each letter is worth 1 point.', 'Vowels are 3 pts, consonants are 1 pt.', 'The traditional scoring algorithm.'],
-  scoringFunction: [simpleScore, vowelBonusScore, oldScrabbleScorer]
+  scoringFunction: [simpleScore, vowelBonusScore, scrabbleScore]
  }
 
 function scorerPrompt() {
@@ -123,11 +125,11 @@ function transform(oldPointStructure) {
   let newPointStructure = {};
   for (let x in oldPointStructure) {
     for (let i = 0; i < oldPointStructure[x].length; i++) {
-      newPointStructure[(oldPointStructure[(x)][(i)]).toLowerCase()] = x;
+      newPointStructure[(oldPointStructure[x][i]).toLowerCase()] = Number(x);
     }
   }
-  //newPointStructure.toLowerCase();
-  console.log(newPointStructure);
+
+  //console.log(newPointStructure);
   return newPointStructure;  
 };
 
@@ -168,8 +170,8 @@ function runProgram() {
   // console.log("letter a: ", newPointStructure.A);
   // console.log("letter j: ", newPointStructure.J);
   // console.log("letter z: ", newPointStructure["Z"]);
-  //scorerPrompt();
-  scrabbleScore(word);
+  scorerPrompt();
+  //scrabbleScore(word);
   // oldScrabbleScorer(word);
   // simpleScore(word);
   // vowelBonusScore(word)
