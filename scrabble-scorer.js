@@ -67,7 +67,7 @@ let simpleScore = function(word) {
 let vowelBonusScore = function(word) {
   //console.log(vowel)
   let vowelBonusScore = 0;
-  let counter = 0;
+  //let counter = 0;
   //word = word.toUpperCase();
   console.log();
 
@@ -80,6 +80,7 @@ let vowelBonusScore = function(word) {
   }
 
   console.log(`Your vowel bonus score is: ${vowelBonusScore}`);  
+
   return vowelBonusScore
 }
 
@@ -105,13 +106,13 @@ let scrabbleScore = function(word) {
 }
 
 const scoringAlgorithms = {
-  name: [ 'Simple Score', 'Bonus Vowels', 'Scrabble' ],
+  name: [ 'Simple Score', 'Vowel Bonus', 'Scrabble' ],
   description: [ 'Each letter is worth 1 point.', 'Vowels are 3 pts, consonants are 1 pt.', 'The traditional scoring algorithm.' ],
-  scoringFunction: [ simpleScore, vowelBonusScore, scrabbleScore ]
+  scoringFunction: [ simpleScore(word), vowelBonusScore(word), scrabbleScore(word)]
  }
 
 function scorerPrompt() {
-  let selectedFunction = input.question('Enter 0 for "Simple Scorer," 1 for Vowel "Bonus," or 2 for "Scrabble Scoring:" ');
+  let selectedFunction = input.question('Enter 0 for "Simple Scorer," 1 for l "Vowel Bonus," or 2 for "Scrabble Scoring:" ');
   let algorithmName = scoringAlgorithms.name[selectedFunction]
   let = chosenFunction = scoringAlgorithms.scoringFunction[selectedFunction]
 
